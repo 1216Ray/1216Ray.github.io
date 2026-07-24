@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO基础标签 -->
+    <!-- SEO -->
     <title>Ray MEI | China Market Strategy & GEO Insights</title>
     <meta name="description" content="Helping global SaaS, beauty, and tech brands enter and grow in China through brand strategy, content marketing, and Generative Engine Optimization (GEO).">
     <meta name="author" content="Ray MEI">
     
-    <!-- Open Graph（LinkedIn/Facebook分享时显示） -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Ray MEI | China Market Strategy & GEO Insights">
     <meta property="og:description" content="Helping global brands grow in China. Exploring SEO, GEO, and AI-powered brand discovery.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://1216Ray.github.io">
     
-    <!-- Google Search Console 验证标签（先空着，Step 5填） -->
-    <meta name="google-site-verification" content="A_ckQ9giqNn6UeqVdO2HS_UQBAhIUlZrZ_Wk7i1IQmE" />
+    <!-- GSC Verification -->
+    <meta name="google-site-verification" content="raym6565a71b0" />
     
-    <!-- Schema.org 结构化数据（让Google/AI更好理解你是谁） -->
+    <!-- Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -27,91 +27,578 @@
       "jobTitle": "China Market Strategist",
       "description": "Helping global brands enter and grow in China through brand strategy and GEO.",
       "url": "https://1216Ray.github.io",
-      "sameAs": [
-        "https://www.linkedin.com/in/raym6565a71b0"
-      ],
+      "sameAs": ["https://www.linkedin.com/in/YOUR_LINKEDIN_URL"],
       "knowsAbout": ["Brand Strategy", "China Market Entry", "GEO", "SEO", "Cross-cultural Marketing"]
     }
     </script>
     
     <style>
+        :root {
+            --primary: #1a1a2e;
+            --accent: #d4a574;
+            --text: #2d2d2d;
+            --text-light: #666;
+            --bg: #fefefe;
+            --bg-warm: #faf8f5;
+            --border: #e8e4df;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+            --radius: 16px;
+        }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6; 
-            color: #333; 
-            max-width: 720px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-            background: #fafafa;
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
-        header { margin-bottom: 48px; }
-        h1 { font-size: 2.2em; margin-bottom: 8px; color: #1a1a1a; }
-        .tagline { color: #666; font-size: 1.1em; margin-bottom: 16px; }
-        .intro { background: white; padding: 32px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 32px; }
-        h2 { font-size: 1.3em; margin: 32px 0 16px; color: #1a1a1a; border-bottom: 2px solid #eee; padding-bottom: 8px; }
-        .article-list { list-style: none; }
-        .article-list li { 
-            background: white; 
-            padding: 20px; 
-            margin-bottom: 12px; 
-            border-radius: 8px; 
-            border-left: 4px solid #0066cc;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(254,254,254,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 0 24px;
         }
-        .article-list a { color: #0066cc; text-decoration: none; font-weight: 600; font-size: 1.05em; }
-        .article-list a:hover { text-decoration: underline; }
-        .article-list p { color: #666; font-size: 0.95em; margin-top: 6px; }
-        .coming-soon { color: #999; font-style: italic; }
-        footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; color: #999; font-size: 0.9em; }
-        .highlight { background: #fff3cd; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
-        nav { margin-bottom: 24px; }
-        nav a { color: #666; text-decoration: none; margin-right: 20px; font-size: 0.95em; }
-        nav a:hover { color: #0066cc; }
+        
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.15em;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+        
+        .logo span { color: var(--accent); }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 100%);
+            color: white;
+            padding: 100px 24px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,165,116,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.85em;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2em, 5vw, 3.2em);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .hero p {
+            font-size: 1.15em;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            line-height: 1.6;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212,165,116,0.35);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .section-sub {
+            color: var(--text-light);
+            margin-bottom: 48px;
+            font-size: 1.05em;
+        }
+        
+        /* About Card */
+        .about-card {
+            background: var(--bg-warm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.4em;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+        
+        .highlight-box {
+            background: white;
+            border-left: 4px solid var(--accent);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .skill-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            transition: all 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+        
+        .skill-icon {
+            font-size: 2em;
+            margin-bottom: 16px;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.15em;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .skill-card p {
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        
+        .tag {
+            background: var(--bg-warm);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.8em;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+        }
+        
+        /* Articles */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        
+        .article-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        
+        .article-meta {
+            padding: 24px 28px 0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .article-category {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        
+        .article-date {
+            color: var(--text-light);
+            font-size: 0.85em;
+        }
+        
+        .article-card h3 {
+            padding: 16px 28px;
+            font-size: 1.15em;
+            color: var(--primary);
+            line-height: 1.4;
+        }
+        
+        .article-card p {
+            padding: 0 28px;
+            color: var(--text-light);
+            font-size: 0.95em;
+            flex-grow: 1;
+        }
+        
+        .article-card .read-more {
+            padding: 20px 28px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .coming-soon-badge {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #999;
+            padding: 2px 10px;
+            border-radius: 100px;
+            font-size: 0.75em;
+            margin-left: 8px;
+        }
+        
+        /* Stats */
+        .stats-bar {
+            background: var(--primary);
+            color: white;
+            padding: 48px 24px;
+        }
+        
+        .stats-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            margin-top: 8px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95em;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-warm);
+            border-top: 1px solid var(--border);
+            padding: 48px 24px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 16px;
+            font-weight: 500;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-card { grid-template-columns: 1fr; padding: 32px; }
+            .hero { padding: 80px 24px 60px; }
+            .section { padding: 60px 24px; }
+            .nav-links a { margin-left: 20px; font-size: 0.9em; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Navigation -->
     <nav>
-        <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/">Articles</a>
-        <a href="https://www.linkedin.com/in/raym6565a71b0" target="_blank">LinkedIn →</a>
+        <div class="nav-inner">
+            <a href="/" class="logo">Ray<span>.</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#articles">Articles</a>
+                <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_URL" target="_blank">LinkedIn ↗</a>
+            </div>
+        </div>
     </nav>
 
-    <header>
-        <h1>Ray MEI</h1>
-        <p class="tagline">China Market Strategy & GEO Insights</p>
-    </header>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-tag">🎯 China Market Entry Strategist</div>
+            <h1>Helping Global Brands Win in China Through Strategy & GEO</h1>
+            <p>I help international SaaS, beauty, and tech brands enter and scale in the Chinese market — now exploring how Generative Engine Optimization reshapes brand discovery in the AI era.</p>
+            <div class="hero-cta">
+                <a href="#articles" class="btn btn-primary">Read My Analysis</a>
+                <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_URL" target="_blank" class="btn btn-outline">Connect on LinkedIn</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="intro">
-        <p>I help <span class="highlight">global SaaS, beauty, and tech brands</span> enter and grow in China.</p>
-        <p style="margin-top: 12px;">Currently exploring how <strong>Generative Engine Optimization (GEO)</strong> is reshaping brand discovery — ensuring that when international buyers ask AI about China market entry, it's the brands I support that get recommended.</p>
-        <p style="margin-top: 12px; color: #666;">Trained in international brand communication in Germany. Based in Shanghai.</p>
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div>
+                <div class="stat-number">100</div>
+                <div class="stat-label">PageSpeed Performance</div>
+            </div>
+            <div>
+                <div class="stat-number">Day 2</div>
+                <div class="stat-label">GEO Learning Journey</div>
+            </div>
+            <div>
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Industries Covered</div>
+            </div>
+            <div>
+                <div class="stat-number">MNC</div>
+                <div class="stat-label">Target Clients</div>
+            </div>
+        </div>
     </div>
 
-    <h2>📝 Latest Articles</h2>
-    <ul class="article-list">
-        <li>
-            <a href="/">How Global SaaS Brands Can Use GEO to Capture Chinese Buyers in 2026</a>
-            <p class="coming-soon">Coming soon — exploring the shift from SEM to AI-powered search visibility.</p>
-        </li>
-        <li>
-            <a href="/">Why Premium Beauty Brands Need GEO for China</a>
-            <p class="coming-soon">Coming soon — when your customers ask ChatGPT for skincare recommendations, will your brand appear?</p>
-        </li>
-        <li>
-            <a href="/">From SEM to GEO: A Cross-Cultural Marketer's Guide</a>
-            <p class="coming-soon">Coming soon — what I learned in 30 days of learning SEO and GEO from scratch.</p>
-        </li>
-    </ul>
+    <!-- About -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-sub">Cross-cultural market builder trained in Germany, based in Shanghai.</p>
+        
+        <div class="about-card">
+            <div class="about-text">
+                <h3>Not Just a Marketer. A Market Builder.</h3>
+                <p>I don't just run campaigns — I build the infrastructure that helps global brands establish lasting market presence in China.</p>
+                <p>My approach connects brand strategy with market intelligence, combining content creation, CRM, lead generation, and digital channels to bridge the gap between marketing and real business outcomes.</p>
+                <div class="highlight-box">
+                    <p>🚀 Currently documenting my 30-day journey from SEO/GEO beginner to practitioner — optimizing this very site as a live case study.</p>
+                </div>
+            </div>
+            <div class="about-text">
+                <h3>Why GEO Matters for Your Brand</h3>
+                <p>When European headquarters ask ChatGPT or Perplexity about "best CRM for China" or "how to localize a beauty brand for Chinese consumers" — whose brand does the AI recommend?</p>
+                <p>That's not traditional SEO. That's <strong>Generative Engine Optimization</strong>. And it's becoming the new battleground for brand visibility.</p>
+            </div>
+        </div>
+    </section>
 
-    <h2>🎯 What I'm Learning</h2>
-    <div class="intro" style="padding: 24px;">
-        <p>Documenting my 30-day journey from SEO/GEO beginner to practitioner. Follow along as I build this site, optimize for Google, and experiment with AI search visibility.</p>
-    </div>
+    <!-- Expertise -->
+    <section class="section" id="expertise" style="background: var(--bg-warm); margin: 0; max-width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 class="section-title">Core Expertise</h2>
+            <p class="section-sub">Strategy-first. Data-driven. AI-enhanced.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🌏</div>
+                    <h3>China Market Entry</h3>
+                    <p>End-to-end GTM strategy for global brands entering China — from messaging that resonates to distribution models that convert.</p>
+                    <div class="skill-tags">
+                        <span class="tag">GTM Strategy</span>
+                        <span class="tag">Localization</span>
+                        <span class="tag">Consumer Insights</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🔍</div>
+                    <h3>SEO & GEO</h3>
+                    <p>Optimizing brand visibility across traditional search and AI-powered discovery platforms. Structured data, entity optimization, and citation-friendly content.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Technical SEO</span>
+                        <span class="tag">GEO</span>
+                        <span class="tag">Schema.org</span>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI-Powered Marketing</h3>
+                    <p>Building AI content pipelines and automation workflows that scale brand operations without losing human nuance.</p>
+                    <div class="skill-tags">
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">Content Automation</span>
+                        <span class="tag">AI Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Articles -->
+    <section class="section" id="articles">
+        <h2 class="section-title">Latest Insights</h2>
+        <p class="section-sub">Analysis on China market strategy, GEO, and AI-driven brand discovery.</p>
+        
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-meta">
+                    <span class="article-category">Strategy</span>
+                    <span class="article-date">Coming Soon</span>
+                </div>
+                <h3>How Global SaaS Brands Can Use GEO to Capture Chinese Buyers in 2026</h3>
+                <p>Exploring the shift from SEM to AI-powered search visibility — and why traditional B2B marketing playbooks are becoming obsolete.</p>
+                <a href="#" class="read-more">Read Analysis →</a>
+            </div>
+            
+            <div class="article-card">
+                <div class="article-meta">
+                    <span class="article-category">Beauty</span>
+                    <span class="article-date">Coming Soon</span>
+                </div>
+                <h3>Why Premium Beauty Brands Need GEO for China</h3>
+                <p>When your customers ask ChatGPT for skincare recommendations, will your brand appear? A framework for luxury beauty GEO strategy.</p>
+                <a href="#" class="read-more">Read Analysis →</a>
+            </div>
+            
+            <div class="article-card">
+                <div class="article-meta">
+                    <span class="article-category">Learning</span>
+                    <span class="article-date">Coming Soon</span>
+                </div>
+                <h3>From SEM to GEO: A Cross-Cultural Marketer's Guide</h3>
+                <p>What I learned in 30 days of learning SEO and GEO from scratch — documented as a live case study on this site.</p>
+                <a href="#" class="read-more">Read Analysis →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_URL" target="_blank">LinkedIn</a>
+            <a href="mailto:mavissssloge@163.com">Email</a>
+            <a href="#articles">Articles</a>
+        </div>
         <p>© 2026 Ray MEI. Built with GitHub Pages. Learning in public.</p>
     </footer>
 
