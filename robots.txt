@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://1216ray.github.io/sitemap.xml
