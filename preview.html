@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ray MEI | China Market Strategy & GEO</title>
+  <meta name="description" content="Helping global SaaS, beauty, and tech brands enter and scale in China through strategy and Generative Engine Optimization.">
+  
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ray MEI",
+    "jobTitle": "China Market Strategist",
+    "url": "https://1216ray.github.io",
+    "sameAs": ["https://www.linkedin.com/in/raym6565a71b0"],
+    "knowsAbout": ["Brand Strategy", "China Market Entry", "GEO", "SEO", "Cross-cultural Marketing"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root {
+      /* Vivid+Co Tokens */
+      --color-bone-white: #fffdf9;
+      --color-obsidian: #101010;
+      --color-graphite-veil: #495764;
+      --color-ash-border: #403f3f;
+      --color-fog-blue: #6f879c;
+      --color-pure-black: #000000;
+      --color-prism-red: #ff2a2a;
+      --color-prism-cyan: #2a7fff;
+      --color-prism-lime: #2aff2a;
+
+      --font-main: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --ease-signature: cubic-bezier(0.52, 0.01, 0, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--color-obsidian);
+      color: var(--color-bone-white);
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Typography — strict Vivid+Co scale */
+    .text-display {
+      font-size: clamp(56px, 10vw, 136px);
+      line-height: 1.00;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      color: var(--color-bone-white);
+    }
+
+    .text-display-sm {
+      font-size: clamp(48px, 8vw, 105px);
+      line-height: 1.01;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      color: var(--color-bone-white);
+    }
+
+    .text-heading-lg {
+      font-size: clamp(33px, 4vw, 56px);
+      line-height: 1.13;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      color: var(--color-bone-white);
+    }
+
+    .text-heading {
+      font-size: 36px;
+      line-height: 1.5;
+      font-weight: 700; /* 700 reserved exclusively for 36px per spec */
+      color: var(--color-bone-white);
+    }
+
+    .text-heading-sm {
+      font-size: 33px;
+      line-height: 1.2;
+      letter-spacing: -0.33px;
+      font-weight: 400;
+      color: var(--color-bone-white);
+    }
+
+    .text-body-lg {
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.22px;
+      font-weight: 400;
+    }
+
+    .text-body {
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.2px;
+      font-weight: 400;
+    }
+
+    .text-body-sm {
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .text-caption {
+      font-size: 15px;
+      line-height: 1.2;
+      letter-spacing: 0.15px;
+      font-weight: 400;
+    }
+
+    .text-eyebrow {
+      font-size: 17px;
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--color-fog-blue);
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1440px;
+      margin: 0 auto;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: background 0.5s var(--ease-signature), border-color 0.5s var(--ease-signature);
+      border-bottom: 1px solid transparent;
+    }
+
+    nav.scrolled {
+      background: rgba(16, 16, 16, 0.9);
+      border-bottom-color: var(--color-ash-border);
+    }
+
+    .nav-logo {
+      font-size: 20px;
+      color: var(--color-bone-white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    /* Ghost Nav Button */
+    .nav-ghost {
+      color: var(--color-bone-white);
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      background: transparent;
+      border: none;
+      border-radius: 0px;
+      padding: 0;
+      transition: color 0.5s var(--ease-signature);
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .nav-ghost:hover { color: var(--color-fog-blue); }
+
+    /* Outlined Contact Button — sole bordered element */
+    .nav-outlined {
+      color: var(--color-bone-white);
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      border: 1px solid var(--color-bone-white);
+      border-radius: 5px;
+      padding: 9px 15px;
+      background: transparent;
+      transition: all 0.5s var(--ease-signature);
+      font-family: inherit;
+    }
+
+    .nav-outlined:hover {
+      background: var(--color-bone-white);
+      color: var(--color-obsidian);
+    }
+
+    /* Layout */
+    section { width: 100%; position: relative; }
+    .container { max-width: 1440px; margin: 0 auto; padding: 0 40px; }
+
+    /* Hero — Obsidian Canvas */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--color-obsidian);
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+      padding-bottom: 80px;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-eyebrow { margin-bottom: 24px; }
+    .hero-headline { margin-bottom: 32px; }
+    .hero-headline span { display: block; }
+    .hero-sub {
+      max-width: 440px;
+      color: var(--color-bone-white);
+      opacity: 0.85;
+    }
+
+    /* Prism Artifact — CSS 3D RGB-split cubes */
+    .prism-container {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50%;
+      height: 80%;
+      perspective: 1200px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .cube {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      transform-style: preserve-3d;
+      animation: rotatePrism 6.65s infinite linear;
+    }
+
+    .cube:nth-child(1) { top: 15%; left: 30%; animation-delay: 0s; }
+    .cube:nth-child(2) { top: 45%; left: 55%; animation-delay: -2.2s; }
+    .cube:nth-child(3) { top: 65%; left: 25%; animation-delay: -4.4s; }
+
+    .face {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: rgba(0,0,0,0.05);
+      opacity: 0.5;
+    }
+
+    .face:nth-child(1) { transform: rotateY(0deg) translateZ(70px); border: 1px solid var(--color-prism-red); box-shadow: 0 0 40px -10px var(--color-prism-red); }
+    .face:nth-child(2) { transform: rotateY(90deg) translateZ(70px); border: 1px solid var(--color-prism-cyan); box-shadow: 0 0 40px -10px var(--color-prism-cyan); }
+    .face:nth-child(3) { transform: rotateY(180deg) translateZ(70px); border: 1px solid var(--color-prism-lime); box-shadow: 0 0 40px -10px var(--color-prism-lime); }
+    .face:nth-child(4) { transform: rotateY(-90deg) translateZ(70px); border: 1px solid var(--color-prism-red); box-shadow: 0 0 40px -10px var(--color-prism-red); }
+    .face:nth-child(5) { transform: rotateX(90deg) translateZ(70px); border: 1px solid var(--color-prism-cyan); box-shadow: 0 0 40px -10px var(--color-prism-cyan); }
+    .face:nth-child(6) { transform: rotateX(-90deg) translateZ(70px); border: 1px solid var(--color-prism-lime); box-shadow: 0 0 40px -10px var(--color-prism-lime); }
+
+    @keyframes rotatePrism {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      100% { transform: rotateX(360deg) rotateY(360deg); }
+    }
+
+    /* Stats — Graphite Veil band */
+    .stats {
+      background: var(--color-graphite-veil);
+      padding: 120px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .stat-item { border-top: 1px solid var(--color-ash-border); padding-top: 24px; }
+    .stat-number {
+      font-size: clamp(48px, 6vw, 105px);
+      line-height: 1.01;
+      letter-spacing: -0.02em;
+      color: var(--color-bone-white);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+    .stat-label { font-size: 15px; color: var(--color-fog-blue); letter-spacing: 0.15px; }
+
+    /* Manifesto / About */
+    .manifesto {
+      background: var(--color-obsidian);
+      padding: 160px 0;
+      position: relative;
+    }
+
+    .manifesto-lead {
+      max-width: 440px;
+      margin-bottom: 24px;
+      color: var(--color-bone-white);
+    }
+
+    .manifesto-headline { max-width: 900px; margin-bottom: 40px; }
+    .manifesto-headline span { display: block; }
+
+    .manifesto-body {
+      max-width: 600px;
+      color: var(--color-fog-blue);
+      line-height: 1.6;
+    }
+
+    /* Expertise */
+    .expertise {
+      background: var(--color-obsidian);
+      padding: 120px 0;
+    }
+
+    .expertise-list { margin-top: 60px; }
+
+    .expertise-item {
+      border-top: 1px solid var(--color-ash-border);
+      padding: 40px 0;
+      transition: padding-left 0.5s var(--ease-signature);
+    }
+
+    .expertise-item:hover { padding-left: 20px; }
+
+    .expertise-title {
+      font-size: 33px;
+      line-height: 1.2;
+      letter-spacing: -0.33px;
+      color: var(--color-bone-white);
+      margin-bottom: 12px;
+      text-decoration: none;
+      display: block;
+      font-weight: 400;
+    }
+
+    .expertise-meta {
+      font-size: 20px;
+      color: var(--color-fog-blue);
+      line-height: 1.2;
+      font-weight: 400;
+    }
+
+    /* Articles — Graphite Veil band */
+    .articles {
+      background: var(--color-graphite-veil);
+      padding: 120px 0;
+    }
+
+    .article-item {
+      border-top: 1px solid var(--color-ash-border);
+      padding: 32px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      transition: padding-left 0.5s var(--ease-signature);
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .article-item:hover { padding-left: 16px; }
+
+    .article-title {
+      font-size: 33px;
+      line-height: 1.2;
+      letter-spacing: -0.33px;
+      color: var(--color-bone-white);
+      max-width: 75%;
+      font-weight: 400;
+    }
+
+    .article-meta {
+      font-size: 15px;
+      color: var(--color-fog-blue);
+      letter-spacing: 0.15px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      margin-left: 24px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-obsidian);
+      padding: 60px 0 40px;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: var(--color-ash-border);
+      margin-bottom: 40px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-col {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--color-bone-white);
+      opacity: 0.7;
+    }
+
+    .footer-col a {
+      color: var(--color-bone-white);
+      text-decoration: none;
+      transition: color 0.5s var(--ease-signature);
+    }
+
+    .footer-col a:hover { color: var(--color-fog-blue); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .prism-container { display: none; }
+      nav { padding: 20px 24px; }
+      .container { padding: 0 24px; }
+      .nav-links { gap: 16px; }
+      .article-item { flex-direction: column; gap: 8px; }
+      .article-title { max-width: 100%; font-size: 24px; }
+      .expertise-title { font-size: 24px; }
+      .expertise-meta { font-size: 16px; }
+      .manifesto { padding: 100px 0; }
+      .stats, .expertise, .articles { padding: 80px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="#" class="nav-logo">Ray.</a>
+    <div class="nav-links">
+      <a href="#about" class="nav-ghost">About</a>
+      <a href="#expertise" class="nav-ghost">Expertise</a>
+      <a href="#articles" class="nav-ghost">Articles</a>
+      <a href="https://www.linkedin.com/in/raym6565a71b0" target="_blank" class="nav-outlined">Connect</a>
+    </div>
+  </nav>
+
+  <!-- Hero: Obsidian Canvas + Prism Artifact + Display Headline -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow text-eyebrow">China Market Entry Strategist</div>
+        <h1 class="hero-headline text-display-sm">
+          <span>Helping Global</span>
+          <span>Brands Win</span>
+          <span>in China</span>
+        </h1>
+        <p class="hero-sub text-body-sm">
+          Strategy, GEO, and AI-powered brand discovery for SaaS, beauty, and tech companies entering the Chinese market.
+        </p>
+      </div>
+    </div>
+
+    <div class="prism-container">
+      <div class="cube">
+        <div class="face"></div><div class="face"></div><div class="face"></div>
+        <div class="face"></div><div class="face"></div><div class="face"></div>
+      </div>
+      <div class="cube">
+        <div class="face"></div><div class="face"></div><div class="face"></div>
+        <div class="face"></div><div class="face"></div><div class="face"></div>
+      </div>
+      <div class="cube">
+        <div class="face"></div><div class="face"></div><div class="face"></div>
+        <div class="face"></div><div class="face"></div><div class="face"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats: Graphite Veil band -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">PageSpeed Performance</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Day 2</div>
+          <div class="stat-label">GEO Learning Journey</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Industries Covered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">MNC</div>
+          <div class="stat-label">Target Clients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto / About -->
+  <section class="manifesto" id="about">
+    <div class="container">
+      <div class="manifesto-lead text-body-lg">
+        Not Just a Marketer. A Market Builder.
+      </div>
+      <h2 class="manifesto-headline text-display-sm">
+        <span>Where Human</span>
+        <span>Intuition Meets</span>
+        <span>AI Strategy</span>
+      </h2>
+      <p class="manifesto-body text-body">
+        Cross-cultural market builder trained in Germany, based in Shanghai. I build the infrastructure that helps global brands establish lasting presence in China.
+        <br><br>
+        Why GEO matters: When European headquarters ask ChatGPT or Perplexity about "best CRM for China" — whose brand does the AI recommend? That's not traditional SEO. That's Generative Engine Optimization. And it's the new battleground for visibility.
+      </p>
+    </div>
+  </section>
+
+  <!-- Expertise -->
+  <section class="expertise" id="expertise">
+    <div class="container">
+      <div class="text-eyebrow" style="margin-bottom: 16px;">Expertise</div>
+      <h2 class="text-heading-lg">Touching tomorrow, today</h2>
+
+      <div class="expertise-list">
+        <div class="expertise-item">
+          <div class="expertise-title">China Market Entry</div>
+          <div class="expertise-meta">GTM Strategy · Localization · Consumer Insights</div>
+        </div>
+        <div class="expertise-item">
+          <div class="expertise-title">SEO & GEO</div>
+          <div class="expertise-meta">Technical SEO · Generative Engine Optimization · Schema.org</div>
+        </div>
+        <div class="expertise-item">
+          <div class="expertise-title">AI-Powered Marketing</div>
+          <div class="expertise-meta">Prompt Engineering · Content Automation · AI Analytics</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles: Graphite Veil band -->
+  <section class="articles" id="articles">
+    <div class="container">
+      <div class="text-eyebrow" style="margin-bottom: 16px;">Insights</div>
+      <h2 class="text-heading-lg" style="margin-bottom: 60px;">Latest Analysis</h2>
+
+      <a href="/blog/china-market-entry-strategy-2026-ai-search/" class="article-item">
+        <div class="article-title">How Global SaaS Brands Can Use GEO to Capture Chinese Buyers in 2026</div>
+        <div class="article-meta">Strategy · Jul 27, 2026</div>
+      </a>
+
+      <a href="#" class="article-item">
+        <div class="article-title">Why Premium Beauty Brands Need GEO for China</div>
+        <div class="article-meta">Beauty · Coming Soon</div>
+      </a>
+
+      <a href="#" class="article-item">
+        <div class="article-title">From SEM to GEO: A Cross-Cultural Marketer's Guide</div>
+        <div class="article-meta">Learning · Coming Soon</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-divider"></div>
+      <div class="footer-inner">
+        <div class="footer-col">
+          © 2026 Ray MEI. Built with precision.<br>
+          Learning in public.
+        </div>
+        <div class="footer-col" style="text-align: right;">
+          <a href="https://www.linkedin.com/in/raym6565a71b0" target="_blank">LinkedIn ↗</a><br>
+          <a href="mailto:mavissssloge@163.com">mavissssloge@163.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Nav scroll state
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Hero entrance
+    gsap.from(".hero-eyebrow", { opacity: 0, y: 20, duration: 1, ease: "power3.out", delay: 0.2 });
+    gsap.from(".hero-headline span", { opacity: 0, y: 50, duration: 1.2, ease: "power3.out", stagger: 0.12, delay: 0.4 });
+    gsap.from(".hero-sub", { opacity: 0, y: 20, duration: 1, ease: "power3.out", delay: 0.9 });
+    gsap.from(".cube", { opacity: 0, scale: 0.8, duration: 2, ease: "power2.out", stagger: 0.2, delay: 0.3 });
+
+    // Stats stagger
+    gsap.from(".stat-item", {
+      opacity: 0, y: 40, duration: 1, ease: "power3.out", stagger: 0.15,
+      scrollTrigger: { trigger: ".stats", start: "top 80%", once: true }
+    });
+
+    // Manifesto
+    gsap.from(".manifesto-lead", { opacity: 0, y: 30, duration: 1, ease: "power3.out",
+      scrollTrigger: { trigger: ".manifesto", start: "top 75%", once: true }
+    });
+    gsap.from(".manifesto-headline span", { opacity: 0, y: 60, duration: 1.2, ease: "power3.out", stagger: 0.1,
+      scrollTrigger: { trigger: ".manifesto", start: "top 70%", once: true }
+    });
+    gsap.from(".manifesto-body", { opacity: 0, y: 20, duration: 1, ease: "power3.out", delay: 0.3,
+      scrollTrigger: { trigger: ".manifesto", start: "top 70%", once: true }
+    });
+
+    // Expertise
+    gsap.from(".expertise-item", { opacity: 0, y: 40, duration: 0.8, ease: "power3.out", stagger: 0.15,
+      scrollTrigger: { trigger: ".expertise-list", start: "top 80%", once: true }
+    });
+
+    // Articles
+    gsap.from(".article-item", { opacity: 0, y: 30, duration: 0.8, ease: "power3.out", stagger: 0.1,
+      scrollTrigger: { trigger: ".articles", start: "top 75%", once: true }
+    });
+  </script>
+</body>
+</html>
