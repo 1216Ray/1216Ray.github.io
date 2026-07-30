@@ -18,18 +18,11 @@
       --color-slate-mute: #666666;
       --color-cool-steel: #868f97;
       --color-bronze-glow: #f2b98b;
-      --color-apricot-highlight: #ffaf7c;
       --gradient-amber-wash: linear-gradient(95deg, #d49065 0%, #fec99b 100%);
       
       --font-verlag: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-verlag-condensed: 'Oswald', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-chronicle: 'Source Serif 4', Georgia, serif;
-      
-      --radius-cards: 16px;
-      --radius-badges: 12px;
-      --radius-images: 36px;
-      --radius-buttons: 6px;
-      --radius-navpill: 9999px;
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,7 +57,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(179, 179, 179, 0.12);
-      border-radius: var(--radius-navpill);
+      border-radius: 9999px;
       padding: 6px 8px;
       pointer-events: auto;
     }
@@ -77,7 +70,7 @@
       text-transform: uppercase;
       letter-spacing: 0.071em;
       padding: 8px 16px;
-      border-radius: var(--radius-navpill);
+      border-radius: 9999px;
       transition: all 0.25s ease;
       white-space: nowrap;
     }
@@ -166,7 +159,7 @@
       letter-spacing: 0.063em;
       padding: 14px 28px;
       border: none;
-      border-radius: var(--radius-buttons);
+      border-radius: 6px;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
@@ -188,7 +181,7 @@
       letter-spacing: 0.063em;
       padding: 14px 28px;
       border: 1px solid var(--color-bronze-glow);
-      border-radius: var(--radius-buttons);
+      border-radius: 6px;
       cursor: pointer;
       text-decoration: none;
       display: inline-block;
@@ -213,7 +206,7 @@
       height: auto;
       display: block;
       filter: brightness(0.65) saturate(0.65);
-      border-radius: var(--radius-images) var(--radius-images) 0 0;
+      border-radius: 36px 36px 0 0;
     }
     
     .hero-image-overlay {
@@ -225,7 +218,8 @@
         transparent 60%,
         transparent 100%
       );
-      border-radius: var(--radius-images) var(--radius-images) 0 0;
+      border-radius: 36px 36px 0 0;
+      pointer-events: none;
     }
     
     .gradient-wash {
@@ -292,7 +286,7 @@
     .card {
       background: var(--color-graphite-layer);
       border: 1px solid rgba(179, 179, 179, 0.08);
-      border-radius: var(--radius-cards);
+      border-radius: 16px;
       padding: 40px 32px;
       transition: all 0.3s ease;
     }
@@ -339,7 +333,7 @@
       letter-spacing: 0.083em;
       color: var(--color-ash-border);
       border: 1px solid rgba(179, 179, 179, 0.25);
-      border-radius: var(--radius-badges);
+      border-radius: 12px;
       padding: 6px 12px;
     }
     
@@ -347,7 +341,7 @@
     .philosophy-section {
       background: var(--color-graphite-layer);
       border: 1px solid rgba(179, 179, 179, 0.08);
-      border-radius: var(--radius-cards);
+      border-radius: 16px;
       padding: 80px 64px;
       text-align: center;
     }
@@ -408,7 +402,7 @@
     .insight-card {
       background: var(--color-graphite-layer);
       border: 1px solid rgba(179, 179, 179, 0.08);
-      border-radius: var(--radius-cards);
+      border-radius: 16px;
       padding: 36px 32px;
       transition: all 0.3s ease;
       display: flex;
@@ -548,11 +542,11 @@
   <!-- Navigation -->
   <nav class="nav-wrapper">
     <div class="nav-pill">
-      <a href="#" class="active">Home</a>
-      <a href="#">About</a>
-      <a href="#">Expertise</a>
-      <a href="#">Insights</a>
-      <a href="#">Case Studies</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="expertise.html">Expertise</a>
+      <a href="insights.html">Insights</a>
+      <a href="case-studies.html">Case Studies</a>
       <a href="https://linkedin.com/in/raym6565a71b0" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </nav>
@@ -565,13 +559,13 @@
       <p class="hero-subtext">I help international brands navigate the Chinese market through consumer insights, localization strategy, digital marketing, and cross-cultural communication.</p>
       <p class="hero-meta">Based in Shanghai &nbsp;|&nbsp; German-trained &nbsp;|&nbsp; Global Marketing Professional</p>
       <div class="hero-cta-group">
-        <a href="#" class="btn-primary">Read My Insights</a>
+        <a href="insights.html" class="btn-primary">Read My Insights</a>
         <a href="https://linkedin.com/in/raym6565a71b0" target="_blank" rel="noopener" class="btn-secondary">Connect on LinkedIn</a>
       </div>
     </div>
     
     <div class="hero-image-wrapper">
-      <img src="assets/images/creation-of-adam.png" alt="The Creation of Adam — symbolizing the connection between global brands and the Chinese market">
+      <img src="assets/images/creation-of-adam.png" alt="The Creation of Adam">
       <div class="hero-image-overlay"></div>
     </div>
     
@@ -680,7 +674,7 @@
     <div class="journey-content">
       <p class="journey-text">Trained in Germany and currently based in China, I work at the intersection of international business, marketing, and cultural understanding.</p>
       <p class="journey-meta">German education background → China market experience → Global marketing</p>
-      <a href="#" class="btn-secondary">More About Me</a>
+      <a href="about.html" class="btn-secondary">More About Me</a>
     </div>
   </section>
 
