@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ray — Cross-cultural Marketing Strategist</title>
-  <meta name="description" content="Helping global brands understand and grow in China through consumer insights, localization strategy, and cross-cultural marketing.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap" rel="stylesheet">
@@ -19,6 +18,7 @@
       --color-cool-steel: #868f97;
       --color-bronze-glow: #f2b98b;
       --gradient-amber-wash: linear-gradient(95deg, #d49065 0%, #fec99b 100%);
+      --scroll: 0;
       
       --font-verlag: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-verlag-condensed: 'Oswald', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -35,14 +35,14 @@
       color: var(--color-bone-white);
       line-height: 1.4;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
     
     /* ===== NAVIGATION ===== */
     .nav-wrapper {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 1000;
       padding: 24px 0;
       display: flex;
       justify-content: center;
@@ -53,10 +53,10 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      background: rgba(29, 29, 31, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(179, 179, 179, 0.12);
+      background: rgba(29, 29, 31, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(179, 179, 179, 0.1);
       border-radius: 9999px;
       padding: 6px 8px;
       pointer-events: auto;
@@ -76,33 +76,131 @@
     }
     
     .nav-pill a:hover {
-      background: rgba(242, 185, 139, 0.1);
+      background: rgba(242, 185, 139, 0.12);
       color: var(--color-bronze-glow);
     }
     
     .nav-pill a.active {
-      background: rgba(242, 185, 139, 0.15);
+      background: rgba(242, 185, 139, 0.18);
       color: var(--color-bronze-glow);
     }
     
-    /* ===== HERO ===== */
+    /* ===== HERO: FULL-BLEED BACKGROUND ===== */
     .hero {
-      position: relative;
-      min-height: 100vh;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      min-height: 700px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 140px 24px 0;
       overflow: hidden;
+      z-index: 1;
     }
     
+    /* Background image layer */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(0.4) saturate(0.65);
+      transform: scale(1.05);
+    }
+    
+    /* Top mask: seamless fade into obsidian canvas */
+    .hero-mask-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(to bottom, 
+        #0f0f10 0%, 
+        rgba(15, 15, 16, 0.8) 30%, 
+        transparent 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    /* Side masks: prevent hard edges */
+    .hero-mask-sides {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, 
+        transparent 50%, 
+        rgba(15, 15, 16, 0.6) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    /* Bottom warm glow: always present, intensifies on scroll */
+    .hero-mask-gold {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 75%;
+      background: linear-gradient(to top, 
+        rgba(212, 144, 101, 0.45) 0%, 
+        rgba(254, 201, 155, 0.15) 35%, 
+        transparent 70%
+      );
+      z-index: 2;
+      pointer-events: none;
+      opacity: calc(0.7 + var(--scroll) * 0.3);
+      transform: translateY(calc((1 - var(--scroll)) * 10%));
+      transition: opacity 0.1s linear;
+    }
+    
+    /* Rising gold overlay: covers image as user scrolls */
+    .hero-gold-rise {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: linear-gradient(to top, 
+        rgba(212, 144, 101, 0.95) 0%, 
+        rgba(254, 201, 155, 0.7) 25%, 
+        rgba(254, 201, 155, 0.2) 60%, 
+        transparent 100%
+      );
+      transform: translateY(calc((1 - var(--scroll)) * 100%));
+      opacity: calc(var(--scroll) * 0.85);
+    }
+    
+    /* Ambient warm blur at bottom */
+    .hero-ambient-glow {
+      position: absolute;
+      bottom: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150%;
+      height: 500px;
+      background: radial-gradient(ellipse at center, 
+        rgba(212, 144, 101, 0.35) 0%, 
+        rgba(254, 201, 155, 0.1) 40%, 
+        transparent 70%
+      );
+      filter: blur(80px);
+      z-index: 2;
+      pointer-events: none;
+      opacity: calc(0.6 + var(--scroll) * 0.4);
+    }
+    
+    /* Text content layer */
     .hero-content {
       position: relative;
       z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      max-width: 900px;
+      padding: 0 24px;
+      margin-top: -5vh;
     }
     
     .hero-eyebrow {
@@ -112,33 +210,35 @@
       letter-spacing: 0.167em;
       color: var(--color-bronze-glow);
       margin-bottom: 24px;
+      opacity: 0.9;
     }
     
     .hero-headline {
       font-family: var(--font-verlag-condensed);
-      font-size: clamp(40px, 7vw, 72px);
+      font-size: clamp(42px, 8vw, 80px);
       font-weight: 700;
       line-height: 1.0;
       letter-spacing: 0.014em;
       color: var(--color-bone-white);
-      max-width: 900px;
       margin-bottom: 24px;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.5);
     }
     
     .hero-subtext {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 400;
-      line-height: 1.5;
-      color: var(--color-ash-border);
-      max-width: 620px;
-      margin-bottom: 16px;
+      line-height: 1.6;
+      color: rgba(254, 254, 247, 0.75);
+      max-width: 600px;
+      margin: 0 auto 16px;
+      text-shadow: 0 1px 20px rgba(0,0,0,0.4);
     }
     
     .hero-meta {
       font-size: 13px;
-      color: var(--color-cool-steel);
+      color: rgba(134, 143, 151, 0.9);
       margin-bottom: 40px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
     
     .hero-cta-group {
@@ -146,7 +246,6 @@
       gap: 16px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 60px;
     }
     
     .btn-primary {
@@ -186,61 +285,67 @@
       text-decoration: none;
       display: inline-block;
       transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
     }
     
     .btn-secondary:hover {
-      background: rgba(242, 185, 139, 0.1);
+      background: rgba(242, 185, 139, 0.12);
     }
     
-    /* Adam Image */
-    .hero-image-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      margin-top: auto;
-      z-index: 5;
-    }
-    
-    .hero-image-wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: brightness(0.65) saturate(0.65);
-      border-radius: 36px 36px 0 0;
-    }
-    
-    .hero-image-overlay {
+    /* Scroll indicator */
+    .scroll-hint {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(to bottom, 
-        var(--color-obsidian-canvas) 0%, 
-        rgba(15, 15, 16, 0.6) 35%,
-        transparent 60%,
-        transparent 100%
-      );
-      border-radius: 36px 36px 0 0;
-      pointer-events: none;
-    }
-    
-    .gradient-wash {
-      position: absolute;
-      bottom: -100px;
+      bottom: 32px;
       left: 50%;
       transform: translateX(-50%);
-      width: 120%;
-      height: 400px;
-      background: var(--gradient-amber-wash);
-      opacity: 0.12;
-      filter: blur(100px);
-      pointer-events: none;
-      z-index: 1;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: calc(1 - var(--scroll) * 3);
+      transition: opacity 0.3s;
+    }
+    
+    .scroll-hint span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-ash-border);
+    }
+    
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--color-ash-border), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.7); }
+      50% { opacity: 1; transform: scaleY(1); }
     }
     
     /* ===== SECTIONS ===== */
     .section {
+      position: relative;
+      z-index: 5;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 100px 24px;
+      padding: 120px 24px;
+    }
+    
+    /* What I Do section: transitions from dark to warm gold */
+    .section-warm {
+      background: linear-gradient(to bottom, 
+        rgba(15, 15, 16, calc(1 - var(--scroll) * 0.3)) 0%, 
+        #1a1208 15%, 
+        #2a1a0a 50%, 
+        #1f1410 100%
+      );
+      position: relative;
+      z-index: 5;
     }
     
     .section-eyebrow {
@@ -284,7 +389,8 @@
     }
     
     .card {
-      background: var(--color-graphite-layer);
+      background: rgba(29, 29, 31, 0.6);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(179, 179, 179, 0.08);
       border-radius: 16px;
       padding: 40px 32px;
@@ -292,8 +398,9 @@
     }
     
     .card:hover {
-      border-color: rgba(242, 185, 139, 0.25);
+      border-color: rgba(242, 185, 139, 0.3);
       transform: translateY(-4px);
+      background: rgba(29, 29, 31, 0.8);
     }
     
     .card-number {
@@ -332,14 +439,15 @@
       text-transform: uppercase;
       letter-spacing: 0.083em;
       color: var(--color-ash-border);
-      border: 1px solid rgba(179, 179, 179, 0.25);
+      border: 1px solid rgba(179, 179, 179, 0.2);
       border-radius: 12px;
       padding: 6px 12px;
     }
     
     /* ===== PHILOSOPHY ===== */
     .philosophy-section {
-      background: var(--color-graphite-layer);
+      background: rgba(29, 29, 31, 0.5);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(179, 179, 179, 0.08);
       border-radius: 16px;
       padding: 80px 64px;
@@ -400,7 +508,8 @@
     }
     
     .insight-card {
-      background: var(--color-graphite-layer);
+      background: rgba(29, 29, 31, 0.5);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(179, 179, 179, 0.08);
       border-radius: 16px;
       padding: 36px 32px;
@@ -478,9 +587,12 @@
     
     /* ===== FOOTER ===== */
     .footer {
+      position: relative;
+      z-index: 5;
       border-top: 1px solid rgba(179, 179, 179, 0.08);
       padding: 100px 24px 60px;
       text-align: center;
+      background: var(--color-obsidian-canvas);
     }
     
     .footer-eyebrow {
@@ -532,9 +644,9 @@
     @media (max-width: 768px) {
       .nav-pill { gap: 2px; padding: 4px 6px; }
       .nav-pill a { font-size: 10px; padding: 6px 10px; letter-spacing: 0.05em; }
-      .hero { padding-top: 100px; }
-      .hero-headline { font-size: 36px; }
-      .section { padding: 64px 20px; }
+      .hero-headline { font-size: 38px; }
+      .hero-subtext { font-size: 15px; }
+      .section { padding: 80px 20px; }
     }
   </style>
 </head>
@@ -551,8 +663,19 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero: Full-bleed background with floating text -->
   <section class="hero">
+    <!-- Background layers -->
+    <div class="hero-bg">
+      <img src="https://1216ray.github.io/Firefly_Gemini%20Flash.png" alt="The Creation of Adam" class="hero-bg-img">
+      <div class="hero-mask-top"></div>
+      <div class="hero-mask-sides"></div>
+      <div class="hero-mask-gold"></div>
+      <div class="hero-gold-rise"></div>
+      <div class="hero-ambient-glow"></div>
+    </div>
+    
+    <!-- Text content floating above -->
     <div class="hero-content">
       <div class="hero-eyebrow">Cross-cultural Marketing Strategist</div>
       <h1 class="hero-headline">Helping Global Brands Understand and Grow in China</h1>
@@ -564,54 +687,54 @@
       </div>
     </div>
     
-    <div class="hero-image-wrapper">
-      <img src="https://1216ray.github.io/Firefly_Gemini%20Flash.png" alt="The Creation of Adam">
-      <div class="hero-image-overlay"></div>
+    <!-- Scroll hint -->
+    <div class="scroll-hint">
+      <span>Scroll</span>
     </div>
-    
-    <div class="gradient-wash"></div>
   </section>
 
-  <!-- Who I Help / What I Do -->
-  <section class="section">
-    <div class="section-eyebrow">What I Do</div>
-    <h2 class="section-title">How I Help Global Brands Enter China</h2>
-    <p class="section-subtitle">Three strategic pillars that define my approach to cross-cultural marketing and market entry.</p>
-    
-    <div class="cards-grid">
-      <div class="card">
-        <div class="card-number">01</div>
-        <h3 class="card-title">China Market Entry Strategy</h3>
-        <p class="card-body">Understanding Chinese consumers, competitors, channels and localization opportunities to build a sustainable market presence.</p>
-        <div class="card-tags">
-          <span class="tag">Market Research</span>
-          <span class="tag">Consumer Insights</span>
-          <span class="tag">Localization Strategy</span>
-          <span class="tag">GTM Planning</span>
-        </div>
-      </div>
+  <!-- What I Do: Warm gold transition section -->
+  <section class="section-warm">
+    <div class="section">
+      <div class="section-eyebrow">What I Do</div>
+      <h2 class="section-title">How I Help Global Brands Enter China</h2>
+      <p class="section-subtitle">Three strategic pillars that define my approach to cross-cultural marketing and market entry.</p>
       
-      <div class="card">
-        <div class="card-number">02</div>
-        <h3 class="card-title">Global Brand Communication</h3>
-        <p class="card-body">Building content strategies that connect international brands with Chinese audiences across digital channels.</p>
-        <div class="card-tags">
-          <span class="tag">Brand Messaging</span>
-          <span class="tag">Social Media Strategy</span>
-          <span class="tag">Content Planning</span>
-          <span class="tag">Community Building</span>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-number">01</div>
+          <h3 class="card-title">China Market Entry Strategy</h3>
+          <p class="card-body">Understanding Chinese consumers, competitors, channels and localization opportunities to build a sustainable market presence.</p>
+          <div class="card-tags">
+            <span class="tag">Market Research</span>
+            <span class="tag">Consumer Insights</span>
+            <span class="tag">Localization Strategy</span>
+            <span class="tag">GTM Planning</span>
+          </div>
         </div>
-      </div>
-      
-      <div class="card">
-        <div class="card-number">03</div>
-        <h3 class="card-title">AI & Future Marketing</h3>
-        <p class="card-body">Exploring how AI is reshaping brand discovery, search behavior and marketing workflows for global brands.</p>
-        <div class="card-tags">
-          <span class="tag">AI Marketing</span>
-          <span class="tag">GEO</span>
-          <span class="tag">Content Automation</span>
-          <span class="tag">Digital Transformation</span>
+        
+        <div class="card">
+          <div class="card-number">02</div>
+          <h3 class="card-title">Global Brand Communication</h3>
+          <p class="card-body">Building content strategies that connect international brands with Chinese audiences across digital channels.</p>
+          <div class="card-tags">
+            <span class="tag">Brand Messaging</span>
+            <span class="tag">Social Media Strategy</span>
+            <span class="tag">Content Planning</span>
+            <span class="tag">Community Building</span>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-number">03</div>
+          <h3 class="card-title">AI & Future Marketing</h3>
+          <p class="card-body">Exploring how AI is reshaping brand discovery, search behavior and marketing workflows for global brands.</p>
+          <div class="card-tags">
+            <span class="tag">AI Marketing</span>
+            <span class="tag">GEO</span>
+            <span class="tag">Content Automation</span>
+            <span class="tag">Digital Transformation</span>
+          </div>
         </div>
       </div>
     </div>
@@ -693,5 +816,33 @@
       <p>© 2026 Ray. Cross-cultural Marketing Strategist.</p>
     </div>
   </footer>
+
+  <!-- Scroll-driven lighting effect -->
+  <script>
+    (function() {
+      const hero = document.querySelector('.hero');
+      let ticking = false;
+      
+      function updateScroll() {
+        const scrollY = window.scrollY;
+        const vh = window.innerHeight;
+        // Progress: 0 at top, 1 after scrolling one viewport height
+        let progress = Math.min(scrollY / (vh * 0.8), 1);
+        // Smooth easing curve
+        progress = progress * progress * (3 - 2 * progress);
+        document.documentElement.style.setProperty('--scroll', progress);
+        ticking = false;
+      }
+      
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateScroll);
+          ticking = true;
+        }
+      }, { passive: true });
+      
+      updateScroll();
+    })();
+  </script>
 </body>
 </html>
